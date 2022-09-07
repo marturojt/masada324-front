@@ -128,5 +128,10 @@
   "defaultProject": "angular-signup-verification-boilerplate",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }
