@@ -27,9 +27,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/angular-calendar/css/angular-calendar.css",
+              "src/styles.scss",
+              "node_modules/materialize-css/dist/css/materialize.min.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/materialize-css/dist/js/materialize.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js"
+            ],
             "vendorChunk": true,
             "extractLicenses": false,
             "buildOptimizer": false,
@@ -97,9 +105,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/angular-calendar/css/angular-calendar.css",
+              "src/styles.scss",
+              "node_modules/materialize-css/dist/css/materialize.min.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/materialize-css/dist/js/materialize.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js"
+            ]
           }
         },
         "e2e": {
@@ -123,7 +139,7 @@
   },
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
