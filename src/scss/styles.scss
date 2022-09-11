@@ -7,3 +7,55 @@
 @import "~@fortawesome/fontawesome-free/scss/regular.scss";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
+// ===== Clases especiales de color =======
+
+// Texto principal
+.text-masada-gold {
+    color: $masada-gold;
+}
+
+// Texto claro
+.text-masada-gold-light {
+    color: $masada-gold-light;
+}
+
+// Fondo principal
+.masada-dark-background {
+    background-color: $masada-dark-background;
+}
+
+// Contraste de fondo oscuro
+.masada-dark-background-contrast {
+    background-color: $masada-dark-background-contrast;
+}
+
+// Contraste de fondo claro
+.masada-grey-highlight {
+    background-color: $masada-grey-highlight;
+}
+
+
+// ===== Global HTML styles =====
+
+body {
+    @extend .masada-dark-background;
+    @extend .text-masada-gold;
+
+    // Distribución del home
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+blockquote {
+    border-left: 5px solid $masada-gold-light;
+    text-align: justify;
+}
+
+.page-footer {
+    padding-top: 1px;
+}

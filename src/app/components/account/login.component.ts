@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         this.submitted = true;
 
         // reset alerts on submit
-        this.alertService.clear();
+        // this.alertService.clear();
 
         // stop here if form is invalid
         if (this.form.invalid) {
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigateByUrl(returnUrl);
                 },
                 error: error => {
-                    this.alertService.error(error);
+                    this.alertService.toastError(error);
                     this.loading = false;
                 }
             });

@@ -42,7 +42,7 @@ export class UpdateComponent implements OnInit {
         this.submitted = true;
 
         // reset alerts on submit
-        this.alertService.clear();
+        // this.alertService.clear();
 
         // stop here if form is invalid
         if (this.form.invalid) {
@@ -54,11 +54,11 @@ export class UpdateComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.alertService.success('Update successful', { keepAfterRouteChange: true });
+                    this.alertService.toastWin('Update successful');
                     this.router.navigate(['../'], { relativeTo: this.route });
                 },
                 error: error => {
-                    this.alertService.error(error);
+                    this.alertService.toastError(error);
                     this.loading = false;
                 }
             });
@@ -70,7 +70,7 @@ export class UpdateComponent implements OnInit {
             this.accountService.delete(this.account.id)
                 .pipe(first())
                 .subscribe(() => {
-                    this.alertService.success('Account deleted successfully', { keepAfterRouteChange: true });
+                    this.alertService.toastWin('Account deleted successfully');
                 });
         }
     }

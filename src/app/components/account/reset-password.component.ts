@@ -62,7 +62,7 @@ export class ResetPasswordComponent implements OnInit {
         this.submitted = true;
 
         // reset alerts on submit
-        this.alertService.clear();
+        // this.alertService.clear();
 
         // stop here if form is invalid
         if (this.form.invalid) {
@@ -74,11 +74,11 @@ export class ResetPasswordComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.alertService.success('Password reset successful, you can now login', { keepAfterRouteChange: true });
+                    this.alertService.toastWin('Password reset successful, you can now login');
                     this.router.navigate(['../login'], { relativeTo: this.route });
                 },
                 error: error => {
-                    this.alertService.error(error);
+                    this.alertService.toastError(error);
                     this.loading = false;
                 }
             });

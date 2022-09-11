@@ -1,45 +1,49 @@
 ﻿import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
-import { Alert, AlertType } from '@app/_models';
+// Init de JQuery y Materialize CSS
+declare var M: any; // MaterializeCSS
+// declare var $: any; // jQuery
 
 @Injectable({ providedIn: 'root' })
 export class AlertService {
-    private subject = new Subject<Alert>();
-    private defaultId = 'default-alert';
 
-    // enable subscribing to alerts observable
-    onAlert(id = this.defaultId): Observable<Alert> {
-        return this.subject.asObservable().pipe(filter(x => x && x.id === id));
+    //#region ALERTAS CON TOAST
+
+    toastError(message: string) {
+        M.toast({ html: message, classes: 'rounded red darken-4' })
     }
 
-    // convenience methods
-    success(message: string, options?: any) {
-        this.alert(new Alert({ ...options, type: AlertType.Success, message }));
+    toastWarn(message: string) {
+        M.toast({ html: message, classes: 'rounded amber accent-4 grey-text text-darken-4' })
     }
 
-    error(message: string, options?: any) {
-        this.alert(new Alert({ ...options, type: AlertType.Error, message }));
+    toastWin(message: string) {
+        M.toast({ html: message, classes: 'rounded verde-mca accent-4' })
     }
 
-    info(message: string, options?: any) {
-        this.alert(new Alert({ ...options, type: AlertType.Info, message }));
+    //#endregion
+
+    //#region ALERTAS CON SWEET ALERT
+
+    sweetWarn(title: string, message: string) {
+        Swal.fire({
+            icon: 'warning',
+            title: title,
+            text: message,
+            confirmButtonColor: '#304632',
+        })
     }
 
-    warn(message: string, options?: any) {
-        this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
+    sweetError(title: string, message: string) {
+        Swal.fire({
+            icon: 'error',
+            title: title,
+            text: message,
+            confirmButtonColor: '#304632',
+        })
     }
 
-    // core alert method
-    alert(alert: Alert) {
-        alert.id = alert.id || this.defaultId;
-        alert.autoClose = (alert.autoClose === undefined ? true : alert.autoClose);
-        this.subject.next(alert);
-    }
+    //#endregion
 
-    // clear alerts
-    clear(id = this.defaultId) {
-        this.subject.next(new Alert({ id }));
-    }
 }
