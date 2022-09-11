@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
         $(document).ready(function () {
             $('.tooltipped').tooltip({
                 position: 'bottom',
-                html: true
+                margin: 2
             });
         });
     }
