@@ -12,7 +12,7 @@ declare var $: any; // jQuery
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  
+
   // Variables
   anioActual: string;
 
@@ -23,9 +23,9 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {
 
     // Init de Materialize components
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('.parallax').parallax();
-  });
+    });
 
     // Al iniciar la pantalla obtenemos el año
 

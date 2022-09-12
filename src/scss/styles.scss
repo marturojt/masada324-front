@@ -11,27 +11,27 @@
 
 // Texto principal
 .text-masada-gold {
-    color: $masada-gold;
+    color: $masada-gold !important;
 }
 
 // Texto claro
 .text-masada-gold-light {
-    color: $masada-gold-light;
+    color: $masada-gold-light !important;
 }
 
 // Fondo principal
 .masada-dark-background {
-    background-color: $masada-dark-background;
+    background-color: $masada-dark-background !important;
 }
 
 // Contraste de fondo oscuro
 .masada-dark-background-contrast {
-    background-color: $masada-dark-background-contrast;
+    background-color: $masada-dark-background-contrast !important;
 }
 
 // Contraste de fondo claro
 .masada-grey-highlight {
-    background-color: $masada-grey-highlight;
+    background-color: $masada-grey-highlight !important;
 }
 
 
@@ -59,3 +59,29 @@ blockquote {
 .page-footer {
     padding-top: 1px;
 }
+
+.dataTables_info {
+    @extend .text-masada-gold;
+}
+
+.dataTables_filter,
+label,
+input {
+    @extend .text-masada-gold;
+}
+
+a.paginate_button,
+a.paginate_button.current,
+a.paginate_button.next,
+a.paginate_button.next.disabled,
+a.paginate_button.previous,
+a.paginate_button.previous.disabled {
+    background-color: lighten($masada-dark-background, 20%) !important;
+}
+
+// a.paginate_button:hover,
+// a.paginate_button.previous:hover,
+// a.paginate_button.current:hover,
+// a.paginate_button.next:hover {
+//     background-color: lighten(red, 10%) !important;
+// }
