@@ -3,8 +3,8 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Books } from '@app/_models';
-import { BooksService } from '@app/_services';
+import { Books, BookFile } from '@app/_models';
+import { AlertService, BooksService } from '@app/_services';
 import Swal from 'sweetalert2';
 
 
@@ -31,10 +31,17 @@ export class BibliotecaComponent implements OnInit, OnDestroy {
   currentRoute: string;
   booksArray: Books[] = [];
 
+
+  // Otras
+  errorMessage = '';
+  loading = false;
+
+
   constructor(
     private booksService: BooksService,
     private route: ActivatedRoute,
     private router: Router,
+    private alertService: AlertService
   ) {
     // Validaciones de la ruta
     router.events.subscribe(() => {
@@ -84,7 +91,7 @@ export class BibliotecaComponent implements OnInit, OnDestroy {
       dom: 'lfrtip',
       language: langDatatable,
       columnDefs: [{
-        targets: [0,1],
+        targets: [0, 1],
         // visible: false,
         searchable: true
       }],
@@ -116,25 +123,89 @@ export class BibliotecaComponent implements OnInit, OnDestroy {
       });
   }
 
-  private fnDownloadFile(id: number, tipo: number) {
+  private getFile(id: number, tipo: number) {
+    this.booksService.getBookFile(id, tipo)
+      .pipe(first())
+      .subscribe({
+        next: file => {
+          // Tipos:
+          // 1 -> Kindle, 2 -> PDF, 3-> EPUB
+          switch (tipo) {
+            case 1:
+              var fileName = `${this.booksArray.filter(book => book.BookID === file.BookID)[0].title}.azw3`.replace(/\s/g, "");
+              break;
+            case 2:
+              var fileName = `${this.booksArray.filter(book => book.BookID === file.BookID)[0].title}.pdf`.replace(/\s/g, "");
+              break;
+            case 3:
+              var fileName = `${this.booksArray.filter(book => book.BookID === file.BookID)[0].title}.epub`.replace(/\s/g, "");
+              break;
+          }
+
+          this.forgeFile(file.file, fileName, tipo)
+
+        },
+        error: error => {
+          this.alertService.toastError(error);
+          this.errorMessage = error;
+          this.loading = false;
+        }
+      })
+  }
+
+  //#endregion
+
+  //#region FUNCIONES PARA LA DESCARGA DE DOCUMENTOS
+
+
+  // Funcion para consumir la función privada
+  fnDownloadFile(BookID: number, tipo: number) {
     // Tipos:
     // 1 -> Kindle, 2 -> PDF, 3-> EPUB
-    console.log(id);
+    this.getFile(BookID, tipo)
+  }
+
+  dataURLtoFile(file: string, filename: string, mime: string) {
+    var bstr = atob(file),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+
+    return new File([u8arr], filename, { type: mime });
+  }
+
+  forgeFile(file: string, name: string, tipo: number) {
+
+    // Tipos:
+    // 1 -> Kindle, 2 -> PDF, 3-> EPUB
     switch (tipo) {
       case 1:
-        console.log('Descarga Kindle');
+        var appType = 'application/vnd.amazon.ebook';
         break;
       case 2:
-        console.log('Descarga PDF');
+        var appType = 'application/pdf';
         break;
       case 3:
-        console.log('Descarga EPUB');
+        var appType = 'application/epub+zip';
         break;
-      default:
-        console.warn('tipo de libro inexistente')
-        break;
-
     }
+
+    var archivo = this.dataURLtoFile(file, name, appType);
+
+    if (archivo) {
+      let dataType = appType;
+      let binaryData = [];
+      binaryData.push(archivo);
+      let downloadLink = document.createElement('a');
+      downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, { type: dataType }));
+      if (archivo.name) downloadLink.setAttribute('download', archivo.name);
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+    }
+
   }
 
   //#endregion

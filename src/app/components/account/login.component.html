@@ -5,7 +5,7 @@
 
     <div class="row container login">
         <div class="col s12 m6 offset-m3">
-            <div class="card large">
+            <div class="card masada-dark-background large">
 
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                     <div class="card-content">
@@ -16,14 +16,14 @@
                         <!-- Formulario de inicio de sesion -->
                         <!-- Username -->
                         <div class="input-field col s12">
-                            <i class="material-icons prefix green-text text-darken-4">account_circle</i>
+                            <i class="material-icons prefix text-masada-gold">account_circle</i>
                             <label for="nombreUsuario">Email</label>
                             <input type="text" autocomplete="username" id="nombreUsuario" name="nombreUsuario"
                                 formControlName="email" maxlength="30" required>
                         </div>
                         <!-- Password -->
                         <div class="input-field col s12">
-                            <i class="material-icons prefix green-text text-darken-4">vpn_key</i>
+                            <i class="material-icons prefix text-masada-gold">vpn_key</i>
                             <label for="passwordUsuario">Contraseña</label>
                             <input type="password" autocomplete="current-password" name="passwordUsuario"
                                 id="passwordUsuario" formControlName="password" maxlength="30" required>
@@ -31,15 +31,18 @@
 
                     </div>
                     <div class="card-action">
-                        <div class="col s12 m6">
+                        <div class="col s12">
                             <div class="center-align">
                                 <button [disabled]="!this.form.valid || this.loading"
-                                    class="btn waves-effect waves-light white-text col s12">Entrar</button>
-                                <a routerLink="../register" class="btn btn-link">Register</a>
+                                    class="btn waves-effect waves-light masada-dark-background-contrast col s12">Entrar</button>
+                                <!-- <a routerLink="../register" class="btn btn-link">Register</a> -->
                             </div>
                         </div>
-                        <div class="col s12 m6">
-                            <a routerLink="../forgot-password" class="btn btn-link pr-0">¿Olvidó su contraseña?</a>
+                        <div class="col s12">
+                            <div class="center-align">
+                                <br>
+                                <a routerLink="../forgot-password" class="btn-flat waves-effect waves-light col s12 center">¿Olvidó su contraseña?</a>
+                            </div>
                         </div>
                     </div>
                 </form>

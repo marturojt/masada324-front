@@ -15,10 +15,10 @@
     // background-repeat: no-repeat;
     // background-position: center center;
     // background-size: cover;
-    // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background: linear-gradient(-45deg, #fff, #86858a, #304632, #86858a, #fff);
+    background: linear-gradient(-45deg, #F2EFBB, #BF9D5E, #252526, #402401);
+    // background: linear-gradient(-45deg, #F2EFBB, #BF9D5E, #252526, #BF9D5E, #F2EFBB);
     background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    animation: gradient 20s ease infinite;
 }
 
 @keyframes gradient {
@@ -93,21 +93,21 @@ sup {
 
 /* icon prefix focus color */
 .input-field .prefix.active {
-    color: #1b5e20;
+    color: #BF9D5E;
 }
 
 /* icon prefix focus color */
 .input-field .prefix {
-    color: #1b5e20;
+    color: #BF9D5E;
 }
 
 /* label underline focus color */
 .input-field input[type=text]:focus {
-    border-bottom: 1px solid #1b5e20;
-    box-shadow: 0 1px 0 0 #1b5e20;
+    border-bottom: 1px solid #BF9D5E;
+    box-shadow: 0 1px 0 0 #BF9D5E;
 }
 
 .input-field input[type=password]:focus {
-    border-bottom: 1px solid #1b5e20;
-    box-shadow: 0 1px 0 0 #1b5e20;
+    border-bottom: 1px solid #BF9D5E;
+    box-shadow: 0 1px 0 0 #BF9D5E;
 }

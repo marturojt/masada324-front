@@ -1,5 +1,5 @@
 export class Books {
-    BookID: Number;
+    BookID: number;
     title: string;
     author: string;
     cover: string;
@@ -11,4 +11,9 @@ export class Books {
     KindleFileExists?: boolean;
     PDFFileExists?: boolean;
     EPUBFileExists?: boolean;
+}
+
+export class BookFile {
+    BookID: number;
+    file?: string;
 }
