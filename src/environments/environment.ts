@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:4000',
-  googleAnalyticsId: ''
+  googleAnalyticsId: '',
+  googleAnalyticsId2: '',
+  googleAnalyticsId3: '',
 };
 
 /*

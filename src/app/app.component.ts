@@ -36,6 +36,12 @@ export class AppComponent implements OnInit {
                 gtag('config', environment.googleAnalyticsId, {
                     page_path: event.urlAfterRedirects
                 });
+                gtag('config', environment.googleAnalyticsId2, {
+                    page_path: event.urlAfterRedirects
+                });
+                gtag('config', environment.googleAnalyticsId3, {
+                    page_path: event.urlAfterRedirects
+                });
             }
         });
     }
