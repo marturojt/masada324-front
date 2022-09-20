@@ -5,22 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "npm start",
-            "name": "Run npm start",
+            "type": "msedge",
             "request": "launch",
-            "type": "node-terminal"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ]
+            "name": "Launch Edge against localhost",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

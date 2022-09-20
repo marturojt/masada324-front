@@ -3,9 +3,9 @@ import { DataTableDirective } from 'angular-datatables';
 import { Subject } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Books, BookFile } from '@app/_models';
+import { Books } from '@app/_models';
 import { AlertService, BooksService } from '@app/_services';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 
 
