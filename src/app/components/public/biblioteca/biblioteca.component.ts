@@ -161,7 +161,7 @@ export class BibliotecaComponent implements OnInit, OnDestroy {
   // Funcion para consumir la función privada
   fnDownloadFile(BookID: number, tipo: number) {
     // Tipos:
-    // 1 -> Kindle, 2 -> PDF, 3-> EPUB
+    // 1 -> Kindle, 2 -> PDF, 3 -> EPUB
     this.getFile(BookID, tipo)
   }
 
@@ -180,7 +180,7 @@ export class BibliotecaComponent implements OnInit, OnDestroy {
   forgeFile(file: string, name: string, tipo: number) {
 
     // Tipos:
-    // 1 -> Kindle, 2 -> PDF, 3-> EPUB
+    // 1 -> Kindle, 2 -> PDF, 3 -> EPUB
     switch (tipo) {
       case 1:
         var appType = 'application/vnd.amazon.ebook';
