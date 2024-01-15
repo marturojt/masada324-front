@@ -141,7 +141,6 @@
       }
     }
   },
-  "defaultProject": "masada324",
   "cli": {
     "analytics": false
   },
