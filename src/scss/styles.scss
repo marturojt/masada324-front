@@ -105,6 +105,11 @@ sup {
   color: red;
 }
 
+.btn.disabled, .btn:disabled {
+  color:#F2EFBB !important;
+}
+
+
 // === DataTables ===
 
 .dataTables_info {

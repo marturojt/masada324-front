@@ -18,7 +18,7 @@
   background: linear-gradient(-45deg, #F2EFBB, #BF9D5E, #252526, #402401);
   // background: linear-gradient(-45deg, #F2EFBB, #BF9D5E, #252526, #BF9D5E, #F2EFBB);
   background-size: 400% 400%;
-  animation: gradient 20s ease infinite;
+  animation: gradient 40s ease infinite;
 }
 
 @keyframes gradient {
@@ -33,8 +33,4 @@
   100% {
       background-position: 0% 50%;
   }
-}
-
-.btn.disabled, .btn:disabled {
-  color:#F2EFBB !important;
 }

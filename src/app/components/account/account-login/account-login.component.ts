@@ -6,12 +6,6 @@ import { AccountService, AlertService } from '@app/_services';
 
 @Component({
   selector: 'app-account-login',
-  standalone: true,
-  imports: [
-    // FormsModule,
-    ReactiveFormsModule,
-    RouterLink
-  ],
   templateUrl: './account-login.component.html',
   styleUrl: './account-login.component.scss'
 })

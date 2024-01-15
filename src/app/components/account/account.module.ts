@@ -4,25 +4,27 @@ import { CommonModule } from '@angular/common';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { LayoutComponent } from './layout.component';
-import { RegisterComponent } from './register.component';
-import { VerifyEmailComponent } from './verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password.component';
 import { ResetPasswordComponent } from './reset-password.component';
-import { AccountResetPasswordComponent } from './account-reset-password/account-reset-password.component';
+import { RouterLink } from '@angular/router';
+import { AccountRegisterComponent } from './account-register/account-register.component';
+import { AccountVerifyEmailComponent } from './account-verify-email/account-verify-email.component';
+import { AccountLoginComponent } from './account-login/account-login.component';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        AccountRoutingModule
+        AccountRoutingModule,
+        RouterLink
     ],
     declarations: [
         LayoutComponent,
-        RegisterComponent,
-        VerifyEmailComponent,
+        AccountLoginComponent,
         ForgotPasswordComponent,
         ResetPasswordComponent,
-        AccountResetPasswordComponent
+        AccountRegisterComponent,
+        AccountVerifyEmailComponent
     ]
 })
 export class AccountModule { }
