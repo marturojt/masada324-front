@@ -29,8 +29,6 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    console.log('a')
-
     // Parallax materializecss
     var elemsParallax = document.querySelectorAll('.parallax');
     var instancesParallax = M.Parallax.init(elemsParallax, {});

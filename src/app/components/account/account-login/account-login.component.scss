@@ -1,0 +1,40 @@
+.logo-Mas {
+  height: 140px;
+  padding: 0.5rem;
+}
+
+.fondo-izquierda {
+  height: 100vh;
+  // width: 100%;
+  // border: 1px solid black;
+  // position: relative;
+  // background: linear-gradient(#86858a, #fff);
+  // background: linear-gradient(#fff, #86858a);
+  // background-image: url('../../../assets/images/stockMarket-min.jpg');
+  // background-color: #86858a;
+  // background-repeat: no-repeat;
+  // background-position: center center;
+  // background-size: cover;
+  background: linear-gradient(-45deg, #F2EFBB, #BF9D5E, #252526, #402401);
+  // background: linear-gradient(-45deg, #F2EFBB, #BF9D5E, #252526, #BF9D5E, #F2EFBB);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+
+  50% {
+      background-position: 100% 50%;
+  }
+
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.btn.disabled, .btn:disabled {
+  color:#F2EFBB !important;
+}

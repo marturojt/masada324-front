@@ -1,4 +1,4 @@
-// Import materializecss sass
+// === Import materialize css and fonts ===
 @import "./materialize-imports.scss";
 
 // Font Awesome
@@ -7,35 +7,35 @@
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
 
-// ===== Clases especiales de color =======
+// === web site color clases ===
 
-// Texto principal
+// Main text
 .text-masada-gold {
     color: $masada-gold !important;
 }
 
-// Texto claro
+// Light text
 .text-masada-gold-light {
     color: $masada-gold-light !important;
 }
 
-// Fondo principal
+// Main background
 .masada-dark-background {
     background-color: $masada-dark-background !important;
 }
 
-// Contraste de fondo oscuro
+// Background contrast
 .masada-dark-background-contrast {
     background-color: $masada-dark-background-contrast !important;
 }
 
-// Contraste de fondo claro
+// Light background highlight
 .masada-grey-highlight {
     background-color: $masada-grey-highlight !important;
 }
 
 
-// ===== Global HTML styles =====
+// === Global HTML styles ===
 
 body {
     @extend .masada-dark-background;
@@ -59,6 +59,53 @@ blockquote {
 .page-footer {
     padding-top: 1px;
 }
+
+// === Form Styles ===
+
+/* Dirty and invalid input */
+input.ng-dirty.ng-invalid {
+  color: red
+}
+
+/* Invalid input */
+input.ng-invalid:not(form) {
+  border-bottom: 1px solid #a94442;
+  /* red */
+  box-shadow: 0 1px 0 0 #a94442;
+  /* black */
+}
+
+/* Helper errors */
+.helper-errors {
+  color: red;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid $masada-gold-light;
+  box-shadow: 0 1px 0 0 $masada-gold-light;
+}
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid $masada-gold-light;
+  box-shadow: 0 1px 0 0 $masada-gold-light;
+}
+.input-field input[type=password]:focus {
+  border-bottom: 1px solid $masada-gold-light;
+  box-shadow: 0 1px 0 0 $masada-gold-light;
+}
+
+/* label color */
+.input-field label {
+  color: $masada-gold;
+}
+
+// === Other things ===
+
+sup {
+  color: red;
+}
+
+// === DataTables ===
 
 .dataTables_info {
     @extend .text-masada-gold;
