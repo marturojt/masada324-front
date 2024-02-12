@@ -1,63 +1,72 @@
-// === Import materialize css and fonts ===
+/* === Import materialize css and fonts === */
 @import "./materialize-imports.scss";
+@import "./colors.scss";
 
-// Font Awesome
+
+/* === Font Awesome === */
 @import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "@fortawesome/fontawesome-free/scss/solid.scss";
 @import "@fortawesome/fontawesome-free/scss/regular.scss";
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
 
-// === web site color clases ===
+/* === theme dynamic classes === */
 
-// Main text
-.text-masada-gold {
-    color: $masada-gold !important;
+// Background color
+.theme-backgound {
+  background-color: var(--md-sys-color-surface) !important;
 }
 
-// Light text
-.text-masada-gold-light {
-    color: $masada-gold-light !important;
+// Backgroud color variant
+.theme-backgound-variant {
+  background-color: var(--md-sys-color-surface-variant) !important;
 }
 
-// Main background
-.masada-dark-background {
-    background-color: $masada-dark-background !important;
+// Main text color
+.theme-main-text {
+  color: var(--md-sys-color-on-surface) !important;
 }
 
-// Background contrast
-.masada-dark-background-contrast {
-    background-color: $masada-dark-background-contrast !important;
+// Main text color variant
+.theme-main-text-variant {
+  color: var(--md-sys-color-on-surface-variant) !important;
 }
 
-// Light background highlight
-.masada-grey-highlight {
-    background-color: $masada-grey-highlight !important;
+// Primary color
+.theme-color-primary {
+  color: var(--md-sys-color-primary) !important;
 }
+
+
+// Image filter
+.img-filter {
+  filter: var(--img-filter);
+}
+
 
 
 // === Global HTML styles ===
 
 body {
-    @extend .masada-dark-background;
-    @extend .text-masada-gold;
+  @extend .theme-backgound;
+  @extend .theme-main-text;
 
-    // Distribución del home
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  // Distribución del home
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 blockquote {
-    border-left: 5px solid $masada-gold-light;
-    text-align: justify;
+  border-left: 5px solid var(--md-sys-color-primary);
+  text-align: justify;
 }
 
 .page-footer {
-    padding-top: 1px;
+  padding-top: 1px;
 }
 
 // === Form Styles ===
@@ -82,21 +91,28 @@ input.ng-invalid:not(form) {
 
 /* label underline focus color */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid $masada-gold-light;
-  box-shadow: 0 1px 0 0 $masada-gold-light;
+  border-bottom: 1px solid var(--md-sys-color-primary);
+  box-shadow: 0 1px 0 0 var(--md-sys-color-primary);
 }
+
 .input-field input[type=email]:focus {
-  border-bottom: 1px solid $masada-gold-light;
-  box-shadow: 0 1px 0 0 $masada-gold-light;
+  border-bottom: 1px solid var(--md-sys-color-primary);
+  box-shadow: 0 1px 0 0 var(--md-sys-color-primary);
 }
+
 .input-field input[type=password]:focus {
-  border-bottom: 1px solid $masada-gold-light;
-  box-shadow: 0 1px 0 0 $masada-gold-light;
+  border-bottom: 1px solid var(--md-sys-color-primary);
+  box-shadow: 0 1px 0 0 var(--md-sys-color-primary);
+}
+
+input[type=checkbox]:checked+.lever {
+  background-color: var(--md-sys-color-primary) !important;
+  border-color: var(--md-sys-color-primary) !important;
 }
 
 /* label color */
 .input-field label {
-  color: $masada-gold;
+  @extend .theme-main-text;
 }
 
 // === Other things ===
@@ -105,21 +121,22 @@ sup {
   color: red;
 }
 
-.btn.disabled, .btn:disabled {
-  color:#F2EFBB !important;
+.btn.disabled,
+.btn:disabled {
+  color: #F2EFBB !important;
 }
 
 
 // === DataTables ===
 
 .dataTables_info {
-    @extend .text-masada-gold;
+  @extend .theme-main-text;
 }
 
 .dataTables_filter,
 label,
 input {
-    @extend .text-masada-gold;
+  @extend .theme-main-text;
 }
 
 a.paginate_button,
@@ -128,7 +145,7 @@ a.paginate_button.next,
 a.paginate_button.next.disabled,
 a.paginate_button.previous,
 a.paginate_button.previous.disabled {
-    background-color: lighten($masada-dark-background, 20%) !important;
+  background-color: var(--md-sys-color-surface-variant, 20%) !important;
 }
 
 // a.paginate_button:hover,

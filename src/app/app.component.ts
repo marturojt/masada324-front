@@ -14,62 +14,75 @@ declare var M: any; // MaterializeCSS
 declare let gtag: (property: string, value: any, configs: any) => {};
 
 @Component({
-    selector: 'app',
-    templateUrl: 'app.component.html',
-    styleUrls: ['app.component.scss']
+  selector: 'app',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
-    // Container variables
-    Role = Role;
-    account: Account;
+  // Theme variables
+  public isLightTheme = false;
 
-    constructor(
-        private accountService: AccountService,
-        public router: Router
-    ) {
-        this.accountService.account.subscribe(x => this.account = x);
+  // Container variables
+  Role = Role;
+  account: Account;
 
-        // Para poblar lo de google Analytics
-        this.router.events.subscribe(event => {
-            if (event instanceof NavigationEnd) {
-                gtag('config', environment.googleAnalyticsId, {
-                    page_path: event.urlAfterRedirects
-                });
-                gtag('config', environment.googleAnalyticsId2, {
-                    page_path: event.urlAfterRedirects
-                });
-                gtag('config', environment.googleAnalyticsId3, {
-                    page_path: event.urlAfterRedirects
-                });
-            }
+  constructor(
+    private accountService: AccountService,
+    public router: Router
+  ) {
+    this.accountService.account.subscribe(x => this.account = x);
+
+    // Para poblar lo de google Analytics
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        gtag('config', environment.googleAnalyticsId, {
+          page_path: event.urlAfterRedirects
         });
-    }
+        gtag('config', environment.googleAnalyticsId2, {
+          page_path: event.urlAfterRedirects
+        });
+        gtag('config', environment.googleAnalyticsId3, {
+          page_path: event.urlAfterRedirects
+        });
+      }
+    });
+  }
 
-    ngOnInit(): void {
-        // $(document).ready(function () {
-        //     $('.tooltipped').tooltip({
-        //         position: 'bottom',
-        //         margin: 2
-        //     });
-        // });
+  ngOnInit(): void {
+    // $(document).ready(function () {
+    //     $('.tooltipped').tooltip({
+    //         position: 'bottom',
+    //         margin: 2
+    //     });
+    // });
 
-    }
+  }
 
-    logout() {
-        this.accountService.logout();
+  logout() {
+    this.accountService.logout();
 
-    }
+  }
+
+  // Theme switcher
+  onThemeSwitchChange() {
+    this.isLightTheme = !this.isLightTheme;
+
+    document.body.setAttribute(
+      'data-theme',
+      this.isLightTheme ? 'light' : 'dark'
+    );
+  }
 
 
-    ngAfterViewInit(): void {
-      // Tooltip materializecss
-      var elemsTooltip = document.querySelectorAll('.tooltipped');
-      var instancesTooltip = M.Tooltip.init(elemsTooltip, {
-        position: 'bottom',
-        margin: 5
-      });
-    }
+  ngAfterViewInit(): void {
+    // Tooltip materializecss
+    var elemsTooltip = document.querySelectorAll('.tooltipped');
+    var instancesTooltip = M.Tooltip.init(elemsTooltip, {
+      position: 'bottom',
+      margin: 5
+    });
+  }
 
 
 }
